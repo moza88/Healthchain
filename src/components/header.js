@@ -37,17 +37,17 @@ export default class MenuExampleStackable extends Component {
         </Menu.Item>
 
         <Menu.Item  
-          name='signin' 
-          as={Link} to='signin'
-          active={activeItem === 'signin'} 
+          name='login' 
+          as={Link} to='login'
+          active={activeItem === 'login'} 
           onClick={this.handleItemClick}>
-          Sign-in
+          Login
         </Menu.Item>
 
         <Menu.Item 
-          name='register' 
-          as={Link} to='register'
-          active={activeItem === 'register'} 
+          name='signup' 
+          as={Link} to='signup'
+          active={activeItem === 'signup'} 
           onClick={this.handleItemClick}>
           Register
         </Menu.Item>
