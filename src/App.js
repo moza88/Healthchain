@@ -10,6 +10,7 @@ import firebase from './Signup/firebase';
 import Login from './Signup/Login';
 import Confirmation from './Signup/Confirmation';
 import MainForm from './Signup/MainForm';
+import CoinbaseLogin from './Signup/CoinbaseLogin';
 
 
 class App extends Component{
@@ -59,6 +60,11 @@ class App extends Component{
       </div>
     )}/>
 
+    <Route exact={true} path='/coinbaselogin' render={() => (
+      <div className="App">
+        <CoinbaseLogin/>
+      </div>
+    )}/>
 
     <Route exact={true} path='/login' render={() => (
       <div className="App">

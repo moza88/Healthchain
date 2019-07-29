@@ -6,6 +6,7 @@ import PersonalDetails from './PersonalDetails';
 import Confirmation from './Confirmation';
 import Success from './Success';
 import Credentials from './Credentials';
+import CoinbaseLogin from './CoinbaseLogin';
 
 class MainForm extends Component {
     state = {
@@ -48,14 +49,14 @@ class MainForm extends Component {
                     values = {values}
                     />
             case 2:
-                return <Credentials
+                return <CoinbaseLogin
                     nextStep = {this.nextStep}
                     prevStep = {this.prevStep}
                     handleChange = {this.handleChange}
                     values = {values}
                     />
             case 3:
-                return <Confirmation
+                return <Credentials
                     nextStep = {this.nextStep}
                     prevStep = {this.prevStep}
                     handleChange = {this.handleChange}
