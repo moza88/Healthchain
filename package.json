@@ -3,25 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
     "express-favicon": "^2.0.1",
-    "firebase": "^5.0.4",
+    "firebase": "^5.11.1",
+    "intl-tel-input": "^16.0.2",
     "link": "^0.1.5",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "mdbreact": "^4.18.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-intl": "^2.9.0",
+    "react-intl-redux": "^2.1.1",
     "react-native": "^0.60.4",
     "react-native-auth0": "^1.5.0",
+    "react-redux": "^7.1.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^3.0.1",
+    "reactstrap": "^8.0.1",
     "rebass": "^1.0.7",
+    "redux": "^4.0.4",
     "semantic-ui": "^2.4.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.3"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "react-scripts build",
+    "deploy": "firebase deploy"
+  },
+  "engines": {
+    "node": "10.16.0",
+    "npm": "6.10.1"
   },
   "eslintConfig": {
     "extends": "react-app"

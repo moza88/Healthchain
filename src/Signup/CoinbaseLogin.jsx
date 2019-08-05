@@ -2,9 +2,9 @@ import React,  { Component } from 'react';
 import axios from 'axios';
 import { Form, Button } from 'semantic-ui-react';
 
-const config = {
+const configx = {
     client_id: '2bb4766d6c2e67beeda3f1bf4ec4dab21623d89477d11cf5cd6a357abda0511b',
-    redirect_uri: 'https://www.medchain.com/home',
+    redirect_uri: 'http://localhost:3000',
     scopes: ['wallet:transactions:send'],
     serviceConfiguration: {
         authorizationEndpoint: 'https://www.coinbase.com/oauth/authorize',
@@ -15,25 +15,55 @@ const config = {
   
   let tokenData;
   
+  var config = {
+    headers: {'Access-Control-Allow-Origin' : '*'}
+  };
+
+  var coinbaseLoginPage = 'https://www.coinbase.com/oauth/authorize?client_id=2bb4766d6c2e67beeda3f1bf4ec4dab21623d89477d11cf5cd6a357abda0511b&redirect_uri=http%3A%2F%2Flocalhost%3A3002%2Fsignup&response_type=code&scope=wallet%3Auser%3Aread';
 
 class CoinbaseLogin extends Component {
+/*
+    componentDidMount() {
+        if (typeof window !== 'undefined') {
+             window.location.href = coinbaseLoginPage;
+        }
+        console.log("Clicked");
+   }
 
     coinbase = (e) => {
         console.log(config);
         try {
-            tokenData = ( axios.get('https://api.coinbase.com/oauth/authorize', config)).data;
+            
+            axios.get('https://www.coinbase.com/oauth/authorize', {
+                params: {
+                    client_id: '2bb4766d6c2e67beeda3f1bf4ec4dab21623d89477d11cf5cd6a357abda0511b',
+                    redirect_uri: 'http://localhost:3000',
+                    response_type: 'code',
+                    scope: 'wallet:transactions:send'
+                }, headers
+              })
+              axios.post('https://www.coinbase.com/oauth/authorize?client_id=2bb4766d6c2e67beeda3f1bf4ec4dab21623d89477d11cf5cd6a357abda0511b&redirect_uri=http%3A%2F%2Flocalhost%3A3002%2Fsignup&response_type=code&scope=wallet%3Auser%3Aread')
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              })
+              .then(function () {
+                // always executed
+              });  
+            //tokenData = ( axios.get('https://www.coinbase.com/oauth/authorize?response_type=code&scope=wallet%3Auser%3Aread', config)).data;
           } catch (error) {
-              console.log("ERROR" + error);
-          }
-    }
-
+              console.log("ERROR" + error);*/
+          
 
 
         render() {
             return (
+                
                 <div>
-                    <h1>OAuth</h1>
-                    <Button onClick={this.coinbase}>Click Here</Button>
+          
+
                 </div>        
             );
         }

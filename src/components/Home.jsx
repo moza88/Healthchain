@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Jumbotron, Button } from 'reactstrap';
 class Home extends Component{
 
     render(){
         return(
-            <section className="hero is-info is-fullheight">
-            <div className="hero-body">
-              <div className="container">
-                <h1 className="title">
-                    Welcome to HealthChain
-                </h1>
-                <h2 className="subtitle">
-                    A health plan that's made just for you
-                </h2>
-                <Link to="/Home" className="button">Let's get started!</Link>
-              </div>
-            </div>
-          </section>
+          <div>
+          <Jumbotron>
+            <h1 className="display-3">A Healthcare Plan Made Just For You</h1>
+            <p className="lead">Pick out healthcare providers you would like to add to your plan or visit</p>
+            <hr className="my-2" />
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p className="lead">
+              <Button color="primary">Learn More</Button>
+            </p>
+          </Jumbotron>
+
+        </div>
+
         )
     }
 

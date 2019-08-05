@@ -6,7 +6,7 @@ import GuestLayout from './components/guest-layout';
 import Home from './components/Home';
 import Signin from './components/Signin';
 import Credentials from './Signup/Credentials';
-import firebase from './Signup/firebase';
+import firebase from '././firebase';
 import Login from './Signup/Login';
 import Confirmation from './Signup/Confirmation';
 import MainForm from './Signup/MainForm';
@@ -45,6 +45,12 @@ class App extends Component{
         </div>
       )}/>
 
+      <Route exact={true} path='/home' render={() => (
+        <div className="App">
+          <Home />
+        </div>
+      )}/>
+
     <Route exact={true} path='/signup' render={() => (
       <div className="App">
         <MainForm/>
@@ -57,12 +63,6 @@ class App extends Component{
     <Route exact={true} path='/confirmation' render={() => (
       <div className="App">
         <Confirmation/>
-      </div>
-    )}/>
-
-    <Route exact={true} path='/coinbaselogin' render={() => (
-      <div className="App">
-        <CoinbaseLogin/>
       </div>
     )}/>
 
@@ -81,6 +81,5 @@ class App extends Component{
     )
   }
 }
-
 
 export default App;

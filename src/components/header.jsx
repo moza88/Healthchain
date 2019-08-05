@@ -53,6 +53,7 @@ export default class MenuExampleStackable extends Component {
         </Menu.Item>
 
       </Menu>
+
     )
   }
 }

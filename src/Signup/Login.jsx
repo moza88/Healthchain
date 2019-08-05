@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Container, Flex, Box, Input, Button, Subhead, Text } from 'rebass';
-import firebase from './firebase';
-import { Form } from 'semantic-ui-react';
+import { Container, Flex, Box, Input, Subhead, Text } from 'rebass';
+import firebase from './../firebase';
+import { Form, Button} from 'semantic-ui-react';
 
 class Login extends Component {
   state = {
@@ -32,30 +32,21 @@ class Login extends Component {
   render() {
     const { email, password, error } = this.state;
     return (
+      <div>
       <Form color='blue'>
         <h1 className="ui centered">Log In</h1>
-        <Flex>
-          <Box>
-          </Box>
-        </Flex>
-        {error ? (
-          <Flex>
-            <Box>
-              <Text>{error.message}</Text>
-            </Box>
-          </Flex>
-        ) : null}
-        <Flex>
-          <Box>
+                           
             <form onSubmit={this.handleSubmit}>
               <Form.Field>
+              <label><b>Email</b></label>
               <Input 
-                type="text" 
                 name="email" 
+                type="email"
                 placeholder="Email" 
                 value={email} 
                 onChange={this.handleInputChange} />
 
+              <label><b>Password</b></label>
               <Input
                 type="password"
                 name="password"
@@ -65,9 +56,8 @@ class Login extends Component {
               /></Form.Field>
               <Button children="Log In" />
             </form>
-          </Box>
-        </Flex>
       </Form>
+      </div>
     );
   }
 }

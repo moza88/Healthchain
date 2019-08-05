@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header';
-import Footer from './footer';
+import Footer from './Footer';
 
 export default function (props) {
   // eslint-disable-next-line

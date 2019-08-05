@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import UserDetails from './UserDetails';
-import PersonalDetails from './PersonalDetails';
 import Confirmation from './Confirmation';
 import Success from './Success';
 import Credentials from './Credentials';
@@ -14,6 +13,7 @@ class MainForm extends Component {
         firstName: '',
         lastName: '',
         email: '',
+        phone: '',
         street_address: '',
         city: '',
         country: ''
@@ -39,8 +39,8 @@ class MainForm extends Component {
 
     render(){
         const {step} = this.state;
-        const { firstName, lastName, email, street_address, city, country } = this.state;
-        const values = { firstName, lastName, email, street_address, city, country};
+        const { firstName, lastName, email, phone, street_address, city, country, emergencyContactName, emergencyContactPhone } = this.state;
+        const values = { firstName, lastName, email, phone, street_address, city, country, emergencyContactName, emergencyContactPhone};
         switch(step){
             case 1:
                 return <UserDetails
@@ -48,14 +48,15 @@ class MainForm extends Component {
                     handleChange = {this.handleChange}
                     values = {values}
                     />
+ 
             case 2:
-                return <CoinbaseLogin
+                return <Confirmation
                     nextStep = {this.nextStep}
                     prevStep = {this.prevStep}
                     handleChange = {this.handleChange}
                     values = {values}
                     />
-            case 3:
+            case 3: 
                 return <Credentials
                     nextStep = {this.nextStep}
                     prevStep = {this.prevStep}
