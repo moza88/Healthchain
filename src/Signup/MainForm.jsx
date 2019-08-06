@@ -39,8 +39,8 @@ class MainForm extends Component {
 
     render(){
         const {step} = this.state;
-        const { firstName, lastName, email, phone, street_address, city, country, emergencyContactName, emergencyContactPhone } = this.state;
-        const values = { firstName, lastName, email, phone, street_address, city, country, emergencyContactName, emergencyContactPhone};
+        const { firstName, lastName, email, phone, street_address, city, region, country, emergencyContactName, emergencyContactPhone } = this.state;
+        const values = { firstName, lastName, email, phone, street_address, city, region, country, emergencyContactName, emergencyContactPhone};
         switch(step){
             case 1:
                 return <UserDetails
