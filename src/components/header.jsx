@@ -22,16 +22,16 @@ export default class MenuExampleStackable extends Component {
         </Menu.Item>
 
         <Menu.Item
-          name='features'
+          name='patient'
           as={Link} to='signin'
-          active={activeItem === 'features'}
+          active={activeItem === 'patient'}
           onClick={this.handleItemClick}>
           Features
         </Menu.Item>
 
         <Menu.Item
-          name='testimonials'
-          active={activeItem === 'testimonials'}
+          name='doctor'
+          active={activeItem === 'doctor'}
           onClick={this.handleItemClick}>
           Testimonials
         </Menu.Item>

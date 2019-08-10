@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron, Button } from 'reactstrap';
+import Search from '../Search/Search';
 class Home extends Component{
 
     render(){
@@ -14,7 +15,7 @@ class Home extends Component{
               <Button color="primary">Learn More</Button>
             </p>
           </Jumbotron>
-
+          <Search></Search>
         </div>
 
         )

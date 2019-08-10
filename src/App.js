@@ -11,7 +11,7 @@ import Login from './Signup/Login';
 import Confirmation from './Signup/Confirmation';
 import MainForm from './Signup/MainForm';
 import CoinbaseLogin from './Signup/CoinbaseLogin';
-
+import Search from './Search/Search';
 
 class App extends Component{
   state = {
@@ -69,6 +69,18 @@ class App extends Component{
     <Route exact={true} path='/login' render={() => (
       <div className="App">
         <Login/>
+      </div>
+    )}/>
+
+    <Route exact={true} path='/patient' render={() => (
+      <div className="App">
+        <Login/>
+      </div>
+    )}/>
+
+<Route exact={true} path='/search' render={() => (
+      <div className="App">
+        <Search/>
       </div>
     )}/>
 

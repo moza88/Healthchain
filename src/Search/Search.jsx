@@ -1,93 +1,165 @@
-import _ from 'lodash'
-import faker from 'faker'
-import React, { Component } from 'react'
-import { Search, Grid, Header, Segment } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { ReactiveBase, DataSearch, MultiDataList, ResultList, ReactiveList} from '@appbaseio/reactivesearch';
 
-const initialState = { isLoading: false, results: [], value: '' }
 
-const getResults = () =>
-  _.times(5, () => ({
-    title: faker.company.companyName(),
-    description: faker.company.catchPhrase(),
-    image: faker.internet.avatar(),
-    price: faker.finance.amount(0, 100, 2, '$'),
-  }))
 
-const source = _.range(0, 3).reduce((memo) => {
-  const name = faker.hacker.noun()
-
-  // eslint-disable-next-line no-param-reassign
-  memo[name] = {
-    name,
-    results: getResults(),
-  }
-
-  return memo
-}, {})
-
-export default class Search extends Component {
-  state = initialState
-
-  handleResultSelect = (e, { result }) => this.setState({ value: result.title })
-
-  handleSearchChange = (e, { value }) => {
-    this.setState({ isLoading: true, value })
-
-    setTimeout(() => {
-      if (this.state.value.length < 1) return this.setState(initialState)
-
-      const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = result => re.test(result.title)
-
-      const filteredResults = _.reduce(
-        source,
-        (memo, data, name) => {
-          const results = _.filter(data.results, isMatch)
-          if (results.length) memo[name] = { name, results } // eslint-disable-line no-param-reassign
-
-          return memo
-        },
-        {},
-      )
-
-      this.setState({
-        isLoading: false,
-        results: filteredResults,
-      })
-    }, 300)
-  }
-
+class Search extends Component {
   render() {
-    const { isLoading, value, results } = this.state
-
     return (
-      <Grid>
-        <Grid.Column width={8}>
-          <Search
-            category
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            onSearchChange={_.debounce(this.handleSearchChange, 500, {
-              leading: true,
-            })}
-            results={results}
-            value={value}
-            {...this.props}
+      <div className="main-container">
+        <ReactiveBase
+          app="healthchain_2"
+          credentials="LJIzJ97sA:199410b6-e0d9-4858-bb61-feb2557bfd94"
+         >
+
+        
+        <div>
+          <DataSearch
+            componentId="mainSearch"
+            dataField={["provider_name"]}
+            categoryField="title"
+            className="search-bar"
+            queryFormat="and"
+            placeholder="Search for providers..."
+            iconPosition="left"
+            autosuggest={false}
+            filterLabel="search"
           />
-        </Grid.Column>
-        <Grid.Column width={8}>
-          <Segment>
-            <Header>State</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(this.state, null, 2)}
-            </pre>
-            <Header>Options</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(source, null, 2)}
-            </pre>
-          </Segment>
-        </Grid.Column>
-      </Grid>
-    )
+        </div>
+        <div className="filter-heading center">
+            <h4>Language</h4>
+            </div>
+            <MultiDataList
+              componentId="language-list"
+              dataField={"original_language"}
+              className="language-filter"
+              size={100}
+              sortBy="asc"
+              queryFormat="or"
+              selectAllLabel="All Languages"
+              showCheckbox={true}
+              showSearch={true}
+              placeholder="Search for a language"
+              react={{
+                and: [
+                  "mainSearch",
+                  "results",
+                  "date-filter",
+                  "RangeSlider",
+                  "genres-list",
+                  "revenue-list"
+                ]
+              }}
+              data={[
+                {
+                  label: "English",
+                  value: "English"
+                },
+                {
+                  label: "Chinese",
+                  value: "Chinese"
+                },
+                {
+                  label: "Turkish",
+                  value: "Turkish"
+                },
+                {
+                  label: "Swedish",
+                  value: "Swedish"
+                },
+                {
+                  label: "Russian",
+                  value: "Russian"
+                },
+                {
+                  label: "Portuguese",
+                  value: "Portuguese"
+                },
+                {
+                  label: "Korean",
+                  value: "Korean"
+                },
+                {
+                  label: "Japanese",
+                  value: "Japanese"
+                },
+                {
+                  label: "Italian",
+                  value: "Italian"
+                },
+                {
+                  label: "Hindi",
+                  value: "Hindi"
+                },
+                {
+                  label: "French",
+                  value: "French"
+                },
+                {
+                  label: "Finnish",
+                  value: "Finnish"
+                },
+                {
+                  label: "Spanish",
+                  value: "Spanish"
+                },
+                {
+                  label: "Deutsch",
+                  value: "Deutsch"
+                }
+              ]}
+              showFilter={true}
+              filterLabel="Language"
+              URLParams={false}
+              innerClass={{
+                label: "list-item",
+                input: "list-input"
+              }}
+            />
+
+            <ReactiveList
+						componentId="result"
+						title="Results"
+						dataField="provider_name"
+						from={0}
+						size={5}
+						pagination={true}
+						react={{
+							and: ["mainSearch", "language-list"]
+						}}
+						render={({data}) => (
+              <ReactiveList.ResultListWrapper>
+                {data.map(item=> (
+                  <ResultList key = {item._id}>
+                    <ResultList.Content>
+                      
+                      <ResultList.Image src={item.poster_path}/>
+                      <ResultList.Title>
+                        <div
+                          className="book-title"
+                          dangerouslySetInnerHTML={{
+                        __html: item.provider_name,
+                        }}
+                        />
+                        </ResultList.Title>
+                        <ResultList.Description>
+                      <div>
+                      {item.tagline}
+                      </div>
+                    </ResultList.Description>
+                    </ResultList.Content>
+                  </ResultList>
+                ))}
+              </ReactiveList.ResultListWrapper>
+            )}
+					/>
+
+        </ReactiveBase>
+
+      </div>
+
+      
+    );
   }
 }
+export default Search;
