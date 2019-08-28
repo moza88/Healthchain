@@ -41,8 +41,8 @@
   display: flex;
   -ms-flex-direction: row;
   flex-direction: row;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -ms-flex-pack: left;
+  justify-content: left;
 }
 
 a:link {
@@ -82,7 +82,37 @@ hr {
   margin-top: 3px;
 }
 
-.book-title {
-  white-space: normal;
-  padding-left: 0px;
+.provider-title {
+  margin-left: 0px;
+  display: block;
+  font-weight: bold;
+}
+
+.description {
+  margin-left: 0px;
+}
+
+.card-button {
+  width: 200px;
+  height: 200px;
+}
+
+.main-searchbar {
+  padding-bottom: 20px;
+}
+
+.flex-container {
+  display: flex;
+
+}
+
+.search-results {
+  margin-right: 0px;
+  width: 100%;
+
+}
+
+.card-buttons {
+  height: 50px;
+  width: 150px;
 }

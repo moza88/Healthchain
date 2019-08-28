@@ -12,6 +12,9 @@ import Confirmation from './Signup/Confirmation';
 import MainForm from './Signup/MainForm';
 import CoinbaseLogin from './Signup/CoinbaseLogin';
 import Search from './Search/Search';
+import Calendly from './components/Calendly';
+import AppointForm from './components/AppointForm';
+import Modal from './components/Modal';
 
 class App extends Component{
   state = {
@@ -81,6 +84,25 @@ class App extends Component{
 <Route exact={true} path='/search' render={() => (
       <div className="App">
         <Search/>
+      </div>
+    )}/>
+
+
+<Route exact={true} path='/calendly' render={() => (
+      <div className="App">
+        <Calendly/>
+      </div>
+    )}/>
+
+<Route exact={true} path='/AppointForm' render={() => (
+      <div className="App">
+        <AppointForm/>
+      </div>
+    )}/>
+
+<Route exact={true} path='/Modal' render={() => (
+      <div className="App">
+        <Modal/>
       </div>
     )}/>
 
