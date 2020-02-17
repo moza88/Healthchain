@@ -39,7 +39,6 @@ class UserDetails extends Component{
         const { values } = this.props;
         return(
             <Form>
-                <h1 className="ui centered">Tell Us About Yourself</h1>
                 <input type='hidden' ref='uid' />
                 <Form.Field>
                     <label>First Name*</label>

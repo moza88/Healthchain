@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import UserDetails from './UserDetails';
 import Confirmation from './Confirmation';
 import Success from './Success';
-import Credentials from './Credentials';
+import Credentials from '../Credentials/Credentials';
 import CoinbaseLogin from './CoinbaseLogin';
 
 class MainForm extends Component {

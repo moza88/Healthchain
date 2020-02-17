@@ -7,10 +7,10 @@ class Home extends Component{
         return(
           <div>
           <Jumbotron>
-            <h1 className="display-3">A Healthcare Plan Made Just For You</h1>
-            <p className="lead">Pick out healthcare providers you would like to add to your plan or visit</p>
+            <h1 className="display-3">HealthChain</h1>
+            <p className="lead">A Healthcare Plan Made Just For You</p>
             <hr className="my-2" />
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p>Pick out healthcare providers you would like to add to your plan or visit</p>
             <p className="lead">
               <Button color="primary">Learn More</Button>
             </p>

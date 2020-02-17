@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import { Menu, Input } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import * as ROUTES from '../../constants/routes';
+import SignOutButton from '../Authentication/Logout/SignOutButton';
+import { withFirebase } from '../Firebase';
 
-export default class MenuExampleStackable extends Component {
-  state = {}
+class MenuExampleStackable extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {}
+  }
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
@@ -22,34 +28,24 @@ export default class MenuExampleStackable extends Component {
         </Menu.Item>
 
         <Menu.Item
-          name='patient'
-          as={Link} to='signin'
-          active={activeItem === 'patient'}
+          name='providers'
+          as={Link} to={ROUTES.SIGNIN}
+          active={activeItem === 'providers'}
           onClick={this.handleItemClick}>
-          Features
+          Providers
         </Menu.Item>
 
         <Menu.Item
-          name='doctor'
-          active={activeItem === 'doctor'}
+          name='patients'
+          as={Link} to={ROUTES.SIGNIN}
+          active={activeItem === 'patients'}
           onClick={this.handleItemClick}>
-          Testimonials
+          Patients
         </Menu.Item>
 
-        <Menu.Item  
-          name='login' 
-          as={Link} to='login'
-          active={activeItem === 'login'} 
-          onClick={this.handleItemClick}>
-          Login
-        </Menu.Item>
-
-        <Menu.Item 
-          name='signup' 
-          as={Link} to='signup'
-          active={activeItem === 'signup'} 
-          onClick={this.handleItemClick}>
-          Register
+        <Menu.Item
+          name='signout'
+          onClick={this.props.firebase.doSignOut}>
         </Menu.Item>
 
       </Menu>
@@ -57,3 +53,5 @@ export default class MenuExampleStackable extends Component {
     )
   }
 }
+
+export default withFirebase(MenuExampleStackable);

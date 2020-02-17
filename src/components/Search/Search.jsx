@@ -1,15 +1,32 @@
 import React, { Component } from 'react'
 import { ReactiveBase, DataSearch, MultiDataList, ResultList, ReactiveList} from '@appbaseio/reactivesearch';
-import { Button, Accordian, Icon } from 'semantic-ui-react'
-import '../App.css'; // Import regular stylesheet
-import Calendly from '../components/Calendly';
-import SimpleModalLauncher from '../components/Modal/SimpleModalLauncher';
-import ReactWeeklyDayPicker from 'react-weekly-day-picker';
+import { Button, Accordian, Icon, List, Form} from 'semantic-ui-react'
+import '../../container/App.css'; // Import regular stylesheet
 
 
 class Search extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+    let firstName = event.target.firstName;
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.firstName);
+    event.preventDefault();
+  }
+  
   render() {
+    const { values } = this.props;
+
     return (
       
         <ReactiveBase
@@ -167,14 +184,7 @@ class Search extends Component {
 
                     </ResultList.Content>
                         <Button className="card-buttons">Add to Plan</Button>
-                        <SimpleModalLauncher className="card-buttons" buttonLabel="Make Appointment">
-                          <div >
-                            <h2>Choose an Appointment Date & Time</h2>
- 
-                            <ReactWeeklyDayPicker />
-                            <Button className="card-buttons">Next</Button>
-                        </div>
-                      </SimpleModalLauncher>
+                        <Button className="card-buttons">Book Appointment</Button>
 
                   </ResultList>
                 ))}
