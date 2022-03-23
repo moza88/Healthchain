@@ -23,7 +23,7 @@
     "react-intl": "^2.9.0",
     "react-intl-redux": "^2.1.1",
     "react-jss": "^8.6.1",
-    "react-native": "^0.60.4",
+    "react-native": "^0.62.3",
     "react-native-auth0": "^1.5.0",
     "react-popup": "^0.10.0",
     "react-redux": "^7.1.0",
