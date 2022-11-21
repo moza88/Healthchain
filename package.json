@@ -28,7 +28,7 @@
     "react-popup": "^0.10.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^5.0.1",
     "react-weekly-day-picker": "^1.0.3",
     "reactstrap": "^8.0.1",
     "rebass": "^1.0.7",
