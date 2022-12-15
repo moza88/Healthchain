@@ -6,7 +6,7 @@
     "@appbaseio/reactivesearch": "^3.0.0-rc.23",
     "@mobiscroll/react-lite": "^4.7.3",
     "bootstrap": "^4.3.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-favicon": "^2.0.1",
     "firebase": "^5.11.1",
     "intl-tel-input": "^16.0.2",
